@@ -1,0 +1,35 @@
+﻿# Secrets and environment configuration
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+**/secrets/
+**/credentials/
+
+# Dependencies and generated builds
+node_modules/
+**/node_modules/
+target/
+dist/
+build/
+coverage/
+
+# Local server and archives
+apache-tomcat-9.0.96/
+apache-tomcat.zip
+
+# Local backups and database exports
+backup/
+*.dump
+*.bak
+*.backup
+*.sql.gz
+
+# Local IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+src/main/resources/config.properties
