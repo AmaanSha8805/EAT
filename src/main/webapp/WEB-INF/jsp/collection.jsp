@@ -29,7 +29,11 @@
             <div class="grid grid-4">
                 <% for (FoodItem food : foodItems) { %>
                 <div class="food-card">
-                    <img src="<%= food.getImageUrl() %>" alt="<%= food.getName() %>" class="food-image" onerror="this.src='https://via.placeholder.com/300x200?text=Image+Not+Available'">
+                    <img src="<%= food.getImageUrl() != null && !food.getImageUrl().isEmpty() ? food.getImageUrl() : "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80" %>"
+                         alt="<%= food.getName() %>"
+                         class="food-image"
+                         loading="lazy"
+                         onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80'">
                     <div class="food-info">
                         <h4 class="food-name"><%= food.getName() %></h4>
                         <% if (food.getCategory() != null && !food.getCategory().isEmpty()) { %>

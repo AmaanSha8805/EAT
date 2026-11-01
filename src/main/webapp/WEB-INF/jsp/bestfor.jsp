@@ -34,7 +34,10 @@
                 <% for (Restaurant restaurant : restaurants) { %>
                 <div class="restaurant-card" onclick="location.href='<%= request.getContextPath() %>/restaurant?id=<%= restaurant.getRestaurantId() %>'">
                     <div class="restaurant-cover">
-                        <img src="<%= restaurant.getImageUrl() %>" alt="<%= restaurant.getName() %>" onerror="this.src='https://via.placeholder.com/300x200?text=Image+Not+Available'">
+                        <img src="<%= restaurant.getImageUrl() != null && !restaurant.getImageUrl().isEmpty() ? restaurant.getImageUrl() : "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&q=80" %>"
+                             alt="<%= restaurant.getName() %>"
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&q=80'">
                         <% if (restaurant.isTrending()) { %>
                             <span class="promoted-badge">Trending</span>
                         <% } %>

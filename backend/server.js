@@ -22,6 +22,7 @@ app.use('/api/collections', require('./routes/collection.routes'));
 app.use('/api/cart', require('./routes/cart.routes'));
 app.use('/api/orders', require('./routes/order.routes'));
 app.use('/api/favorites', require('./routes/favorite.routes'));
+app.use('/api/reviews', require('./routes/review.routes'));
 app.use('/api/user', require('./routes/user.routes'));
 app.use('/api/admin', require('./routes/admin.routes'));
 
@@ -45,7 +46,16 @@ app.use((req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`EAT Backend Server running on port ${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+});
+
+// Keep the process alive
+process.on('SIGINT', () => {
+  console.log('\nShutting down gracefully...');
+  server.close(() => {
+    console.log('Server closed');
+    process.exit(0);
+  });
 });

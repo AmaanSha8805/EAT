@@ -42,17 +42,22 @@
                         </div>
                         <p class="text-muted mt-2"><%= order.getRestaurantName() %></p>
                         <p><strong>Total:</strong> ₹<%= order.getTotalAmount() + 30 %></p>
+                        <p><strong>Payment:</strong> <%= order.getDisplayPaymentMethod() %>
+                            <span class="badge <%= "paid".equals(order.getPaymentStatus()) ? "badge-success" : "badge-warning" %>">
+                                <%= order.getDisplayPaymentStatus() %>
+                            </span>
+                        </p>
                         <p class="text-muted" style="font-size: 0.875rem;">
                             Placed on: <%= order.getCreatedAt().toLocalDate() %>
                         </p>
                         <div class="mt-3">
-                            <a href="<%= request.getContextPath() %>/order-details?id=<%= order.getOrderId() %>" 
+                            <a href="<%= request.getContextPath() %>/order-details?id=<%= order.getOrderId() %>"
                                class="btn btn-outline btn-sm">View Details</a>
                             <% if (order.canCancel()) { %>
                                 <form action="<%= request.getContextPath() %>/order-details" method="POST" style="display: inline;">
                                     <input type="hidden" name="action" value="cancel">
                                     <input type="hidden" name="orderId" value="<%= order.getOrderId() %>">
-                                    <button type="submit" class="btn btn-danger btn-sm" 
+                                    <button type="submit" class="btn btn-danger btn-sm"
                                             onclick="return confirm('Are you sure you want to cancel this order?');">
                                         Cancel Order
                                     </button>

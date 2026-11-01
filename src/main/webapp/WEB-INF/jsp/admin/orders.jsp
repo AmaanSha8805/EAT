@@ -57,7 +57,12 @@
                                 <%= order.getDisplayStatus() %>
                             </span>
                         </td>
-                        <td><%= order.getPaymentMethod().toUpperCase() %></td>
+                        <td>
+                            <%= order.getDisplayPaymentMethod() %>
+                            <span class="badge <%= "paid".equals(order.getPaymentStatus()) ? "badge-success" : "badge-warning" %>">
+                                <%= order.getDisplayPaymentStatus() %>
+                            </span>
+                        </td>
                         <td><%= order.getCreatedAt().toLocalDate() %></td>
                         <td>
                             <a href="<%= request.getContextPath() %>/admin/order-details?id=<%= order.getOrderId() %>" 

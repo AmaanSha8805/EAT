@@ -6,7 +6,7 @@ const getAllRestaurants = async (req, res) => {
     const { search, pureVeg, cuisine, category, bestFor } = req.query;
 
     let query = `
-      SELECT r.*, array_agg(DISTINCT c.name) as categories
+      SELECT r.*, array_agg(DISTINCT c.name) as categories, r.estimated_delivery_time as delivery_time
       FROM restaurants r
       LEFT JOIN restaurant_categories rc ON r.restaurant_id = rc.restaurant_id
       LEFT JOIN categories c ON rc.category_id = c.category_id
@@ -73,7 +73,7 @@ const getRestaurantById = async (req, res) => {
     const { id } = req.params;
 
     const result = await db.query(
-      'SELECT * FROM restaurants WHERE restaurant_id = $1 AND is_active = true',
+      'SELECT *, estimated_delivery_time as delivery_time FROM restaurants WHERE restaurant_id = $1 AND is_active = true',
       [id]
     );
 
@@ -102,9 +102,9 @@ const getTrendingRestaurants = async (req, res) => {
   try {
     const result = await db.query(
       `SELECT * FROM restaurants
-       WHERE is_active = true AND is_trending = true
+       WHERE is_active = true
        ORDER BY rating DESC
-       LIMIT 10`
+       LIMIT 20`
     );
 
     res.json({

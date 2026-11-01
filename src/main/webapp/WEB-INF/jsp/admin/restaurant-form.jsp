@@ -71,11 +71,34 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="form-label">Image URL</label>
-                                <input type="url" name="imageUrl" class="form-control" 
-                                       value="<%= isEdit ? restaurant.getImageUrl() : "" %>">
+                                <input type="url" name="imageUrl" class="form-control" id="imageUrlInput"
+                                       value="<%= isEdit ? restaurant.getImageUrl() : "" %>"
+                                       oninput="previewImage(this.value)">
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group" id="imagePreviewContainer" style="<%= isEdit && restaurant.getImageUrl() != null && !restaurant.getImageUrl().isEmpty() ? "" : "display: none;" %>">
+                        <label class="form-label">Image Preview</label>
+                        <img id="imagePreview"
+                             src="<%= isEdit && restaurant.getImageUrl() != null ? restaurant.getImageUrl() : "" %>"
+                             alt="Restaurant Preview"
+                             style="width: 300px; height: 200px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--gray-300);"
+                             onerror="this.style.display='none'">
+                    </div>
+
+                    <script>
+                        function previewImage(url) {
+                            const preview = document.getElementById('imagePreview');
+                            const container = document.getElementById('imagePreviewContainer');
+                            if (url && url.trim() !== '') {
+                                preview.src = url;
+                                container.style.display = 'block';
+                            } else {
+                                container.style.display = 'none';
+                            }
+                        }
+                    </script>
                     
                     <div class="row">
                         <div class="col-4">

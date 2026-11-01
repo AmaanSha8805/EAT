@@ -4,11 +4,19 @@ const db = require('../config/db');
 const getFoodByRestaurant = async (req, res) => {
   try {
     const { id } = req.params;
+    const { category } = req.query;
 
-    const result = await db.query(
-      'SELECT * FROM food_items WHERE restaurant_id = $1 AND is_available = true ORDER BY name',
-      [id]
-    );
+    let query = 'SELECT * FROM food_items WHERE restaurant_id = $1 AND is_available = true';
+    const params = [id];
+
+    if (category) {
+      query += ' AND category = $2';
+      params.push(category);
+    }
+
+    query += ' ORDER BY category, name';
+
+    const result = await db.query(query, params);
 
     res.json({
       success: true,

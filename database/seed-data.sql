@@ -73,94 +73,94 @@ INSERT INTO restaurant_best_for (restaurant_id, best_for_id) VALUES
 (10, 3), (10, 4);
 
 -- Insert Food Items for Spice Garden (North Indian)
-INSERT INTO food_items (restaurant_id, name, description, price, category, is_vegetarian, is_trending, preparation_time) VALUES
-(1, 'Butter Chicken', 'Creamy tomato-based curry with tender chicken', 280.00, 'Main Course', false, true, 25),
-(1, 'Paneer Tikka Masala', 'Cubes of paneer in spiced tomato gravy', 240.00, 'Main Course', true, true, 20),
-(1, 'Dal Makhani', 'Creamy black lentils simmered overnight', 180.00, 'Main Course', true, false, 30),
-(1, 'Naan Bread', 'Soft traditional Indian bread', 40.00, 'Bread', true, false, 10),
-(1, 'Chicken Biryani', 'Aromatic basmati rice with spiced chicken', 260.00, 'Rice', false, true, 30),
-(1, 'Vegetable Biryani', 'Fragrant rice with mixed vegetables', 220.00, 'Rice', true, false, 25);
+INSERT INTO food_items (restaurant_id, name, description, price, image_url, category, is_vegetarian, is_trending, preparation_time) VALUES
+(1, 'Butter Chicken', 'Creamy tomato-based curry with tender chicken', 280.00, 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500&q=80', 'Main Course', false, true, 25),
+(1, 'Paneer Tikka Masala', 'Cubes of paneer in spiced tomato gravy', 240.00, 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=500&q=80', 'Main Course', true, true, 20),
+(1, 'Dal Makhani', 'Creamy black lentils simmered overnight', 180.00, 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=500&q=80', 'Main Course', true, false, 30),
+(1, 'Naan Bread', 'Soft traditional Indian bread', 40.00, 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=80', 'Bread', true, false, 10),
+(1, 'Chicken Biryani', 'Aromatic basmati rice with spiced chicken', 260.00, 'https://images.unsplash.com/photo-1563379091339-03b21e4c00c4?w=500&q=80', 'Rice', false, true, 30),
+(1, 'Vegetable Biryani', 'Fragrant rice with mixed vegetables', 220.00, 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500&q=80', 'Rice', true, false, 25);
 
 -- Insert Food Items for Dosa Corner (South Indian)
-INSERT INTO food_items (restaurant_id, name, description, price, category, is_vegetarian, is_trending, preparation_time) VALUES
-(2, 'Masala Dosa', 'Crispy dosa filled with spiced potato filling', 80.00, 'Dosa', true, true, 15),
-(2, 'Idli Sambar', 'Steamed rice cakes with lentil soup', 60.00, 'Breakfast', true, false, 10),
-(2, 'Uttapam', 'Thick pancake with vegetable toppings', 90.00, 'Dosa', true, false, 15),
-(2, 'Rava Dosa', 'Crispy semolina dosa', 70.00, 'Dosa', true, true, 12),
-(2, 'Filter Coffee', 'Traditional South Indian coffee', 40.00, 'Beverage', true, false, 5),
-(2, 'Vada', 'Crispy lentil fritters', 50.00, 'Snack', true, false, 10);
+INSERT INTO food_items (restaurant_id, name, description, price, image_url, category, is_vegetarian, is_trending, preparation_time) VALUES
+(2, 'Masala Dosa', 'Crispy dosa filled with spiced potato filling', 80.00, 'https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=500&q=80', 'Dosa', true, true, 15),
+(2, 'Idli Sambar', 'Steamed rice cakes with lentil soup', 60.00, 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=500&q=80', 'Breakfast', true, false, 10),
+(2, 'Uttapam', 'Thick pancake with vegetable toppings', 90.00, 'https://images.unsplash.com/photo-1626132647523-66d29aa5c7e7?w=500&q=80', 'Dosa', true, false, 15),
+(2, 'Rava Dosa', 'Crispy semolina dosa', 70.00, 'https://images.unsplash.com/photo-1600384060421-cb20d0e0649d?w=500&q=80', 'Dosa', true, true, 12),
+(2, 'Filter Coffee', 'Traditional South Indian coffee', 40.00, 'https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=500&q=80', 'Beverage', true, false, 5),
+(2, 'Vada', 'Crispy lentil fritters', 50.00, 'https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=500&q=80', 'Snack', true, false, 10);
 
 -- Insert Food Items for Dragon Wok (Chinese)
-INSERT INTO food_items (restaurant_id, name, description, price, category, is_vegetarian, is_trending, preparation_time) VALUES
-(3, 'Chicken Manchurian', 'Indo-Chinese chicken balls in spicy sauce', 220.00, 'Starters', false, true, 20),
-(3, 'Veg Fried Rice', 'Stir-fried rice with mixed vegetables', 150.00, 'Rice', true, false, 15),
-(3, 'Chicken Fried Rice', 'Fried rice with chicken and vegetables', 180.00, 'Rice', false, true, 15),
-(3, 'Hakka Noodles', 'Stir-fried noodles with vegetables', 160.00, 'Noodles', true, false, 15),
-(3, 'Spring Rolls', 'Crispy vegetable spring rolls', 120.00, 'Starters', true, false, 15),
-(3, 'Chilli Chicken', 'Spicy chicken with bell peppers', 240.00, 'Main Course', false, true, 20);
+INSERT INTO food_items (restaurant_id, name, description, price, image_url, category, is_vegetarian, is_trending, preparation_time) VALUES
+(3, 'Chicken Manchurian', 'Indo-Chinese chicken balls in spicy sauce', 220.00, 'https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?w=500&q=80', 'Starters', false, true, 20),
+(3, 'Veg Fried Rice', 'Stir-fried rice with mixed vegetables', 150.00, 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500&q=80', 'Rice', true, false, 15),
+(3, 'Chicken Fried Rice', 'Fried rice with chicken and vegetables', 180.00, 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500&q=80', 'Rice', false, true, 15),
+(3, 'Hakka Noodles', 'Stir-fried noodles with vegetables', 160.00, 'https://images.unsplash.com/photo-1585032226651-759b368d7246?w=500&q=80', 'Noodles', true, false, 15),
+(3, 'Spring Rolls', 'Crispy vegetable spring rolls', 120.00, 'https://images.unsplash.com/photo-1606525436872-0996a0590969?w=500&q=80', 'Starters', true, false, 15),
+(3, 'Chilli Chicken', 'Spicy chicken with bell peppers', 240.00, 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=80', 'Main Course', false, true, 20);
 
 -- Insert Food Items for Pizza Paradise (Italian)
-INSERT INTO food_items (restaurant_id, name, description, price, category, is_vegetarian, is_trending, preparation_time) VALUES
-(4, 'Margherita Pizza', 'Classic pizza with tomato, mozzarella and basil', 280.00, 'Pizza', true, true, 20),
-(4, 'Pepperoni Pizza', 'Loaded with pepperoni and cheese', 350.00, 'Pizza', false, true, 20),
-(4, 'Veggie Supreme', 'Loaded with vegetables and cheese', 320.00, 'Pizza', true, false, 20),
-(4, 'Garlic Bread', 'Toasted bread with garlic butter', 120.00, 'Sides', true, false, 10),
-(4, 'Pasta Alfredo', 'Creamy white sauce pasta', 260.00, 'Pasta', true, false, 18),
-(4, 'Chicken Pasta', 'Pasta with chicken in tomato sauce', 290.00, 'Pasta', false, false, 18);
+INSERT INTO food_items (restaurant_id, name, description, price, image_url, category, is_vegetarian, is_trending, preparation_time) VALUES
+(4, 'Margherita Pizza', 'Classic pizza with tomato, mozzarella and basil', 280.00, 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=80', 'Pizza', true, true, 20),
+(4, 'Pepperoni Pizza', 'Loaded with pepperoni and cheese', 350.00, 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=500&q=80', 'Pizza', false, true, 20),
+(4, 'Veggie Supreme', 'Loaded with vegetables and cheese', 320.00, 'https://images.unsplash.com/photo-1511689660979-10d2b1aada49?w=500&q=80', 'Pizza', true, false, 20),
+(4, 'Garlic Bread', 'Toasted bread with garlic butter', 120.00, 'https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?w=500&q=80', 'Sides', true, false, 10),
+(4, 'Pasta Alfredo', 'Creamy white sauce pasta', 260.00, 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=80', 'Pasta', true, false, 18),
+(4, 'Chicken Pasta', 'Pasta with chicken in tomato sauce', 290.00, 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&q=80', 'Pasta', false, false, 18);
 
 -- Insert Food Items for Brew & Bean (Beverages)
-INSERT INTO food_items (restaurant_id, name, description, price, category, is_vegetarian, is_trending, preparation_time) VALUES
-(5, 'Cappuccino', 'Classic Italian coffee with foam', 120.00, 'Coffee', true, true, 5),
-(5, 'Latte', 'Smooth espresso with steamed milk', 140.00, 'Coffee', true, false, 5),
-(5, 'Cold Coffee', 'Chilled coffee with ice cream', 150.00, 'Cold Coffee', true, true, 5),
-(5, 'Mango Smoothie', 'Fresh mango blended smoothie', 180.00, 'Smoothie', true, false, 8),
-(5, 'Iced Tea', 'Refreshing iced tea with lemon', 100.00, 'Tea', true, false, 5),
-(5, 'Sandwich', 'Grilled vegetable sandwich', 160.00, 'Snacks', true, false, 10);
+INSERT INTO food_items (restaurant_id, name, description, price, image_url, category, is_vegetarian, is_trending, preparation_time) VALUES
+(5, 'Cappuccino', 'Classic Italian coffee with foam', 120.00, 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500&q=80', 'Coffee', true, true, 5),
+(5, 'Latte', 'Smooth espresso with steamed milk', 140.00, 'https://images.unsplash.com/photo-1541167760496-1628856ab772?w=500&q=80', 'Coffee', true, false, 5),
+(5, 'Cold Coffee', 'Chilled coffee with ice cream', 150.00, 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&q=80', 'Cold Coffee', true, true, 5),
+(5, 'Mango Smoothie', 'Fresh mango blended smoothie', 180.00, 'https://images.unsplash.com/photo-993483514752-2c9dc0f97e51?w=500&q=80', 'Smoothie', true, false, 8),
+(5, 'Iced Tea', 'Refreshing iced tea with lemon', 100.00, 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&q=80', 'Tea', true, false, 5),
+(5, 'Sandwich', 'Grilled vegetable sandwich', 160.00, 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=500&q=80', 'Snacks', true, false, 10);
 
 -- Insert Food Items for Sweet Delights (Desserts)
-INSERT INTO food_items (restaurant_id, name, description, price, category, is_vegetarian, is_trending, preparation_time) VALUES
-(6, 'Chocolate Cake', 'Rich chocolate layer cake', 250.00, 'Cake', true, true, 10),
-(6, 'Red Velvet Cake', 'Classic red velvet with cream cheese frosting', 280.00, 'Cake', true, false, 10),
-(6, 'Ice Cream Sundae', 'Ice cream with toppings and sauce', 180.00, 'Ice Cream', true, true, 5),
-(6, 'Brownie', 'Fudgy chocolate brownie', 150.00, 'Pastry', true, false, 8),
-(6, 'Cheesecake', 'Creamy New York style cheesecake', 220.00, 'Cake', true, false, 10),
-(6, 'Gulab Jamun', 'Traditional Indian sweet balls in syrup', 120.00, 'Indian Sweet', true, false, 5);
+INSERT INTO food_items (restaurant_id, name, description, price, image_url, category, is_vegetarian, is_trending, preparation_time) VALUES
+(6, 'Chocolate Cake', 'Rich chocolate layer cake', 250.00, 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80', 'Cake', true, true, 10),
+(6, 'Red Velvet Cake', 'Classic red velvet with cream cheese frosting', 280.00, 'https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=500&q=80', 'Cake', true, false, 10),
+(6, 'Ice Cream Sundae', 'Ice cream with toppings and sauce', 180.00, 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500&q=80', 'Ice Cream', true, true, 5),
+(6, 'Brownie', 'Fudgy chocolate brownie', 150.00, 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&q=80', 'Pastry', true, false, 8),
+(6, 'Cheesecake', 'Creamy New York style cheesecake', 220.00, 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=500&q=80', 'Cake', true, false, 10),
+(6, 'Gulab Jamun', 'Traditional Indian sweet balls in syrup', 120.00, 'https://images.unsplash.com/photo-1666190054763-aca5363780e7?w=500&q=80', 'Indian Sweet', true, false, 5);
 
 -- Insert Food Items for Burger Barn (Fast Food)
-INSERT INTO food_items (restaurant_id, name, description, price, category, is_vegetarian, is_trending, preparation_time) VALUES
-(7, 'Classic Burger', 'Beef patty with lettuce and cheese', 180.00, 'Burger', false, true, 12),
-(7, 'Veggie Burger', 'Vegetarian patty with fresh vegetables', 150.00, 'Burger', true, false, 12),
-(7, 'Chicken Burger', 'Crispy chicken fillet burger', 170.00, 'Burger', false, true, 12),
-(7, 'French Fries', 'Crispy golden fries', 100.00, 'Sides', true, false, 8),
-(7, 'Onion Rings', 'Crispy battered onion rings', 110.00, 'Sides', true, false, 10),
-(7, 'Coke', 'Chilled Coca-Cola', 60.00, 'Beverage', true, false, 2);
+INSERT INTO food_items (restaurant_id, name, description, price, image_url, category, is_vegetarian, is_trending, preparation_time) VALUES
+(7, 'Classic Burger', 'Beef patty with lettuce and cheese', 180.00, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&q=80', 'Burger', false, true, 12),
+(7, 'Veggie Burger', 'Vegetarian patty with fresh vegetables', 150.00, 'https://images.unsplash.com/photo-1520072959219-c595dc870360?w=500&q=80', 'Burger', true, false, 12),
+(7, 'Chicken Burger', 'Crispy chicken fillet burger', 170.00, 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=500&q=80', 'Burger', false, true, 12),
+(7, 'French Fries', 'Crispy golden fries', 100.00, 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&q=80', 'Sides', true, false, 8),
+(7, 'Onion Rings', 'Crispy battered onion rings', 110.00, 'https://images.unsplash.com/photo-1639024471283-03518883512d?w=500&q=80', 'Sides', true, false, 10),
+(7, 'Coke', 'Chilled Coca-Cola', 60.00, 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&q=80', 'Beverage', true, false, 2);
 
 -- Insert Food Items for Green Bowl (Healthy)
-INSERT INTO food_items (restaurant_id, name, description, price, category, is_vegetarian, is_trending, preparation_time) VALUES
-(8, 'Caesar Salad', 'Fresh lettuce with Caesar dressing', 180.00, 'Salad', true, true, 10),
-(8, 'Greek Salad', 'Mediterranean vegetables with feta', 200.00, 'Salad', true, false, 10),
-(8, 'Protein Bowl', 'Grilled chicken with quinoa and vegetables', 280.00, 'Bowl', false, true, 15),
-(8, 'Veggie Bowl', 'Mixed vegetables with brown rice', 220.00, 'Bowl', true, false, 12),
-(8, 'Fresh Juice', 'Mixed fruit fresh juice', 120.00, 'Juice', true, false, 5),
-(8, 'Smoothie Bowl', 'Acai bowl with fruits and granola', 250.00, 'Bowl', true, false, 10);
+INSERT INTO food_items (restaurant_id, name, description, price, image_url, category, is_vegetarian, is_trending, preparation_time) VALUES
+(8, 'Caesar Salad', 'Fresh lettuce with Caesar dressing', 180.00, 'https://images.unsplash.com/photo-1546793665-c74683f339c1?w=500&q=80', 'Salad', true, true, 10),
+(8, 'Greek Salad', 'Mediterranean vegetables with feta', 200.00, 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&q=80', 'Salad', true, false, 10),
+(8, 'Protein Bowl', 'Grilled chicken with quinoa and vegetables', 280.00, 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80', 'Bowl', false, true, 15),
+(8, 'Veggie Bowl', 'Mixed vegetables with brown rice', 220.00, 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=80', 'Bowl', true, false, 12),
+(8, 'Fresh Juice', 'Mixed fruit fresh juice', 120.00, 'https://images.unsplash.com/photo-1613478223719-2ab802602423?w=500&q=80', 'Juice', true, false, 5),
+(8, 'Smoothie Bowl', 'Acai bowl with fruits and granola', 250.00, 'https://images.unsplash.com/photo-1590301157890-4810ed352733?w=500&q=80', 'Bowl', true, false, 10);
 
 -- Insert Food Items for Fresh Bakery (Bakery)
-INSERT INTO food_items (restaurant_id, name, description, price, category, is_vegetarian, is_trending, preparation_time) VALUES
-(9, 'Croissant', 'Buttery French croissant', 60.00, 'Pastry', true, true, 5),
-(9, 'Chocolate Croissant', 'Croissant filled with chocolate', 80.00, 'Pastry', true, false, 5),
-(9, 'Sandwich Bread', 'Fresh sliced bread loaf', 90.00, 'Bread', true, false, 5),
-(9, 'Muffin', 'Blueberry or chocolate chip muffin', 70.00, 'Pastry', true, false, 5),
-(9, 'Bagel', 'Fresh baked bagel', 50.00, 'Bread', true, false, 5),
-(9, 'Pasta Bun', 'Sweet bun with pasta filling', 40.00, 'Pastry', true, false, 5);
+INSERT INTO food_items (restaurant_id, name, description, price, image_url, category, is_vegetarian, is_trending, preparation_time) VALUES
+(9, 'Croissant', 'Buttery French croissant', 60.00, 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=500&q=80', 'Pastry', true, true, 5),
+(9, 'Chocolate Croissant', 'Croissant filled with chocolate', 80.00, 'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=500&q=80', 'Pastry', true, false, 5),
+(9, 'Sandwich Bread', 'Fresh sliced bread loaf', 90.00, 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80', 'Bread', true, false, 5),
+(9, 'Muffin', 'Blueberry or chocolate chip muffin', 70.00, 'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=500&q=80', 'Pastry', true, false, 5),
+(9, 'Bagel', 'Fresh baked bagel', 50.00, 'https://images.unsplash.com/photo-1585449078915-0279c1cc5e59?w=500&q=80', 'Bread', true, false, 5),
+(9, 'Pasta Bun', 'Sweet bun with pasta filling', 40.00, 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&q=80', 'Pastry', true, false, 5);
 
 -- Insert Food Items for Continental Kitchen (Continental)
-INSERT INTO food_items (restaurant_id, name, description, price, category, is_vegetarian, is_trending, preparation_time) VALUES
-(10, 'Grilled Chicken', 'Herb-crusted grilled chicken breast', 350.00, 'Main Course', false, true, 25),
-(10, 'Fish & Chips', 'Battered fish with crispy fries', 380.00, 'Main Course', false, false, 20),
-(10, 'Vegetable Lasagna', 'Layered pasta with vegetables and cheese', 320.00, 'Pasta', true, false, 25),
-(10, 'Mushroom Soup', 'Creamy mushroom soup', 150.00, 'Soup', true, false, 12),
-(10, 'Caesar Salad', 'Classic Caesar salad', 200.00, 'Salad', true, false, 10),
-(10, 'Chocolate Mousse', 'Rich chocolate dessert', 220.00, 'Dessert', true, false, 8);
+INSERT INTO food_items (restaurant_id, name, description, price, image_url, category, is_vegetarian, is_trending, preparation_time) VALUES
+(10, 'Grilled Chicken', 'Herb-crusted grilled chicken breast', 350.00, 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=500&q=80', 'Main Course', false, true, 25),
+(10, 'Fish & Chips', 'Battered fish with crispy fries', 380.00, 'https://images.unsplash.com/photo-1586190848861-99c8a3da7c47?w=500&q=80', 'Main Course', false, false, 20),
+(10, 'Vegetable Lasagna', 'Layered pasta with vegetables and cheese', 320.00, 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=500&q=80', 'Pasta', true, false, 25),
+(10, 'Mushroom Soup', 'Creamy mushroom soup', 150.00, 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=500&q=80', 'Soup', true, false, 12),
+(10, 'Caesar Salad', 'Classic Caesar salad', 200.00, 'https://images.unsplash.com/photo-1546793665-c74683f339c1?w=500&q=80', 'Salad', true, false, 10),
+(10, 'Chocolate Mousse', 'Rich chocolate dessert', 220.00, 'https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?w=500&q=80', 'Dessert', true, false, 8);
 
 -- Insert Delivery Persons
 INSERT INTO delivery_persons (name, phone, vehicle_number, is_available) VALUES

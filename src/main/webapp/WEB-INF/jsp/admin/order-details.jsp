@@ -38,13 +38,39 @@
                         <h3>Order Information</h3>
                         <p><strong>Customer:</strong> <%= order.getUserName() %></p>
                         <p><strong>Restaurant:</strong> <%= order.getRestaurantName() %></p>
-                        <p><strong>Status:</strong> 
+                        <p><strong>Status:</strong>
                             <span class="badge <%= "cancelled".equals(order.getStatus()) ? "badge-danger" : "badge-trending" %>">
                                 <%= order.getDisplayStatus() %>
                             </span>
                         </p>
-                        <p><strong>Payment Method:</strong> <%= order.getPaymentMethod().toUpperCase() %></p>
-                        <p><strong>Payment Status:</strong> <%= order.getPaymentStatus().toUpperCase() %></p>
+                        <p><strong>Payment Method:</strong> <%= order.getDisplayPaymentMethod() %></p>
+                        <p><strong>Payment Status:</strong>
+                            <span class="badge <%= "paid".equals(order.getPaymentStatus()) ? "badge-success" : "badge-warning" %>">
+                                <%= order.getDisplayPaymentStatus() %>
+                            </span>
+                        </p>
+
+                        <% if ("upi".equals(order.getPaymentMethod()) && order.getUpiId() != null) { %>
+                            <p><strong>UPI ID:</strong> <%= order.getUpiId() %></p>
+                            <% if (order.getUpiApp() != null) { %>
+                                <p><strong>UPI App:</strong> <%= order.getUpiApp().toUpperCase() %></p>
+                            <% } %>
+                        <% } else if ("card".equals(order.getPaymentMethod()) && order.getCardLastFour() != null) { %>
+                            <p><strong>Card:</strong> **** <%= order.getCardLastFour() %>
+                                <% if (order.getCardType() != null) { %>
+                                    (<%= order.getCardType().toUpperCase() %>)
+                                <% } %>
+                            </p>
+                        <% } else if ("net_banking".equals(order.getPaymentMethod()) && order.getBankName() != null) { %>
+                            <p><strong>Bank:</strong> <%= order.getBankName() %></p>
+                        <% } %>
+
+                        <% if (order.getPaymentTransactionId() != null) { %>
+                            <p class="text-muted" style="font-size: 0.875rem;">
+                                Transaction ID: <%= order.getPaymentTransactionId() %>
+                            </p>
+                        <% } %>
+
                         <hr>
                         <p><strong>Subtotal:</strong> ₹<%= order.getTotalAmount() %></p>
                         <p><strong>Delivery Fee:</strong> ₹30</p>

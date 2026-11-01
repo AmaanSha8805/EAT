@@ -15,6 +15,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Image</th>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Cuisine</th>
@@ -28,6 +29,13 @@
                     <% if (restaurants != null && !restaurants.isEmpty()) {
                            for (Restaurant restaurant : restaurants) { %>
                     <tr>
+                        <td>
+                            <img src="<%= restaurant.getImageUrl() != null && !restaurant.getImageUrl().isEmpty() ? restaurant.getImageUrl() : "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&q=80" %>"
+                                 alt="<%= restaurant.getName() %>"
+                                 style="width: 60px; height: 60px; object-fit: cover; border-radius: var(--radius-sm);"
+                                 loading="lazy"
+                                 onerror="this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&q=80'">
+                        </td>
                         <td><%= restaurant.getRestaurantId() %></td>
                         <td><%= restaurant.getName() %></td>
                         <td><%= restaurant.getCuisineType() %></td>
@@ -54,7 +62,7 @@
                     </tr>
                     <% } } else { %>
                     <tr>
-                        <td colspan="7" class="text-center">No restaurants found</td>
+                        <td colspan="8" class="text-center">No restaurants found</td>
                     </tr>
                     <% } %>
                 </tbody>

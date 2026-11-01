@@ -15,17 +15,23 @@ router.get('/:type', async (req, res) => {
         );
         restaurants = studentResult.rows;
         break;
+      case 'couples_special':
+        const couplesResult = await db.query(
+          "SELECT * FROM restaurants WHERE rating >= 4.0 AND is_active = true ORDER BY rating DESC"
+        );
+        restaurants = couplesResult.rows;
+        break;
+      case 'family_packages':
+        const familyResult = await db.query(
+          "SELECT * FROM restaurants WHERE is_family_special = true AND is_active = true ORDER BY rating DESC"
+        );
+        restaurants = familyResult.rows;
+        break;
       case 'budget_meals':
         const budgetResult = await db.query(
           "SELECT * FROM restaurants WHERE price_range = '$' AND is_active = true ORDER BY rating DESC"
         );
         restaurants = budgetResult.rows;
-        break;
-      case 'family_feast':
-        const familyResult = await db.query(
-          "SELECT * FROM restaurants WHERE is_family_special = true AND is_active = true ORDER BY rating DESC"
-        );
-        restaurants = familyResult.rows;
         break;
       case 'party_packs':
         const partyResult = await db.query(

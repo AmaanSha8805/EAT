@@ -18,8 +18,9 @@ public class OrderDAO {
      */
     public boolean createOrderWithItems(Order order, List<CartItem> cartItems) {
         String orderSql = "INSERT INTO orders (user_id, restaurant_id, total_amount, status, payment_method, " +
-                     "payment_status, delivery_address, delivery_phone, special_instructions, guest_name) " +
-                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                     "payment_status, delivery_address, delivery_phone, special_instructions, guest_name, " +
+                     "upi_id, upi_app, card_last_four, card_type, bank_name, payment_transaction_id, payment_gateway_response) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         String itemSql = "INSERT INTO order_items (order_id, food_id, quantity, price_at_order, subtotal) " +
                      "VALUES (?, ?, ?, ?, ?)";
 
@@ -44,6 +45,13 @@ public class OrderDAO {
                 stmt.setString(8, order.getDeliveryPhone());
                 stmt.setString(9, order.getSpecialInstructions());
                 stmt.setString(10, order.getGuestName());
+                stmt.setString(11, order.getUpiId());
+                stmt.setString(12, order.getUpiApp());
+                stmt.setString(13, order.getCardLastFour());
+                stmt.setString(14, order.getCardType());
+                stmt.setString(15, order.getBankName());
+                stmt.setString(16, order.getPaymentTransactionId());
+                stmt.setString(17, order.getPaymentGatewayResponse());
 
                 int rows = stmt.executeUpdate();
                 if (rows == 0) {
@@ -98,12 +106,13 @@ public class OrderDAO {
     // Legacy method kept for backward compatibility
     public boolean create(Order order) {
         String sql = "INSERT INTO orders (user_id, restaurant_id, total_amount, status, payment_method, " +
-                     "payment_status, delivery_address, delivery_phone, special_instructions, guest_name) " +
-                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        
+                     "payment_status, delivery_address, delivery_phone, special_instructions, guest_name, " +
+                     "upi_id, upi_app, card_last_four, card_type, bank_name, payment_transaction_id, payment_gateway_response) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            
+
             if (order.getUserId() != null) {
                 stmt.setInt(1, order.getUserId());
             } else {
@@ -118,6 +127,13 @@ public class OrderDAO {
             stmt.setString(8, order.getDeliveryPhone());
             stmt.setString(9, order.getSpecialInstructions());
             stmt.setString(10, order.getGuestName());
+            stmt.setString(11, order.getUpiId());
+            stmt.setString(12, order.getUpiApp());
+            stmt.setString(13, order.getCardLastFour());
+            stmt.setString(14, order.getCardType());
+            stmt.setString(15, order.getBankName());
+            stmt.setString(16, order.getPaymentTransactionId());
+            stmt.setString(17, order.getPaymentGatewayResponse());
             
             int rows = stmt.executeUpdate();
             if (rows > 0) {
@@ -327,6 +343,13 @@ public class OrderDAO {
         order.setDeliveryPhone(rs.getString("delivery_phone"));
         order.setSpecialInstructions(rs.getString("special_instructions"));
         order.setGuestName(rs.getString("guest_name"));
+        order.setUpiId(rs.getString("upi_id"));
+        order.setUpiApp(rs.getString("upi_app"));
+        order.setCardLastFour(rs.getString("card_last_four"));
+        order.setCardType(rs.getString("card_type"));
+        order.setBankName(rs.getString("bank_name"));
+        order.setPaymentTransactionId(rs.getString("payment_transaction_id"));
+        order.setPaymentGatewayResponse(rs.getString("payment_gateway_response"));
         order.setCreatedAt(rs.getTimestamp("created_at").toLocalDateTime());
         order.setUpdatedAt(rs.getTimestamp("updated_at").toLocalDateTime());
         return order;

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { createOrder, getOrdersByUser, getOrderById } = require('../controllers/order.controller');
+const { createOrder, getOrdersByUser, getOrderById, deleteOrder } = require('../controllers/order.controller');
 const auth = require('../middleware/auth.middleware');
 
 // Create order - allow guest (no auth required for checkout)
@@ -25,5 +25,8 @@ router.get('/', auth, getOrdersByUser);
 
 // Get order by ID - requires auth
 router.get('/:id', auth, getOrderById);
+
+// Delete order (soft delete) - requires auth
+router.delete('/:id', auth, deleteOrder);
 
 module.exports = router;

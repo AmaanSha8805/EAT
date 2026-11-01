@@ -38,9 +38,11 @@
                 <div class="col-8">
                     <% for (CartItem item : cart) { %>
                     <div class="cart-item" style="background-color: var(--white); border: 1px solid var(--gray-200);">
-                        <img src="<%= item.getFoodImageUrl() != null ? item.getFoodImageUrl() : "" %>"
-                             alt="<%= item.getFoodName() %>" class="cart-item-image"
-                             onerror="this.src='https://via.placeholder.com/80x80?text=Food'">
+                        <img src="<%= item.getFoodImageUrl() != null && !item.getFoodImageUrl().isEmpty() ? item.getFoodImageUrl() : "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80" %>"
+                             alt="<%= item.getFoodName() %>"
+                             class="cart-item-image"
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80'">
                         <div class="cart-item-info">
                             <h4 class="cart-item-name"><%= item.getFoodName() %></h4>
                             <p class="text-muted" style="font-size: 0.875rem;"><%= item.getRestaurantName() %></p>

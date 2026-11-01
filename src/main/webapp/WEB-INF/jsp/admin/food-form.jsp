@@ -63,10 +63,36 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="form-label">Image URL</label>
-                                <input type="url" name="imageUrl" class="form-control" 
-                                       value="<%= isEdit ? foodItem.getImageUrl() : "" %>">
+                                <input type="url" name="imageUrl" class="form-control" id="imageUrlInput"
+                                       value="<%= isEdit ? foodItem.getImageUrl() : "" %>"
+                                       oninput="previewImage(this.value)">
                             </div>
                         </div>
+                    </div>
+
+                    <div class="form-group" id="imagePreviewContainer" style="<%= isEdit && foodItem.getImageUrl() != null && !foodItem.getImageUrl().isEmpty() ? "" : "display: none;" %>">
+                        <label class="form-label">Image Preview</label>
+                        <img id="imagePreview"
+                             src="<%= isEdit && foodItem.getImageUrl() != null ? foodItem.getImageUrl() : "" %>"
+                             alt="Food Item Preview"
+                             style="width: 200px; height: 150px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--gray-300);"
+                             onerror="this.style.display='none'">
+                    </div>
+
+                    <script>
+                        function previewImage(url) {
+                            const preview = document.getElementById('imagePreview');
+                            const container = document.getElementById('imagePreviewContainer');
+                            if (url && url.trim() !== '') {
+                                preview.src = url;
+                                container.style.display = 'block';
+                            } else {
+                                container.style.display = 'none';
+                            }
+                        }
+                    </script>
+
+                    <div class="row">
                     </div>
                     
                     <div class="row">

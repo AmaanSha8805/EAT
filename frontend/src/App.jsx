@@ -1,122 +1,64 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { CartProvider } from './context/CartContext';
+import { ToastProvider } from './context/ToastContext';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Toast from './components/Toast';
+import Home from './pages/Home';
+import Restaurants from './pages/Restaurants';
+import RestaurantDetails from './pages/RestaurantDetails';
+import FoodItems from './pages/FoodItems';
+import Categories from './pages/Categories';
+import CategoryDetails from './pages/CategoryDetails';
+import BestForDetails from './pages/BestForDetails';
+import CollectionDetails from './pages/CollectionDetails';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
+import OrderSuccess from './pages/OrderSuccess';
+import Orders from './pages/Orders';
+import OrderDetails from './pages/OrderDetails';
+import AdminDashboard from './pages/AdminDashboard';
+import './index.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    <AuthProvider>
+      <CartProvider>
+        <ToastProvider>
+          <Router>
+            <div className="app">
+              <Navbar />
+              <main className="main-content">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/restaurants" element={<Restaurants />} />
+                  <Route path="/restaurant/:id" element={<RestaurantDetails />} />
+                  <Route path="/food-items" element={<FoodItems />} />
+                  <Route path="/categories" element={<Categories />} />
+                  <Route path="/category/:id" element={<CategoryDetails />} />
+                  <Route path="/best-for/:id" element={<BestForDetails />} />
+                  <Route path="/collection/:type" element={<CollectionDetails />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<Signup />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/order-success/:orderId" element={<OrderSuccess />} />
+                  <Route path="/orders" element={<Orders />} />
+                  <Route path="/order/:id" element={<OrderDetails />} />
+                  <Route path="/admin" element={<AdminDashboard />} />
+                </Routes>
+              </main>
+              <Footer />
+              <Toast />
+            </div>
+          </Router>
+        </ToastProvider>
+      </CartProvider>
+    </AuthProvider>
+  );
 }
 
 export default App

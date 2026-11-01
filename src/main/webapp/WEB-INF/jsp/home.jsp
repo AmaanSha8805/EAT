@@ -2,6 +2,36 @@
 <%@ page import="java.util.List" %>
 <%@ include file="header.jsp" %>
 
+<%!
+    private String getCategoryImage(String categoryName) {
+        if (categoryName == null) return "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80";
+        switch (categoryName.toLowerCase()) {
+            case "north indian":
+                return "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=500&q=80";
+            case "south indian":
+                return "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=500&q=80";
+            case "chinese":
+                return "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=500&q=80";
+            case "italian":
+                return "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80";
+            case "beverages":
+                return "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80";
+            case "desserts":
+                return "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&q=80";
+            case "fast food":
+                return "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&q=80";
+            case "healthy":
+                return "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=80";
+            case "bakery":
+                return "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80";
+            case "continental":
+                return "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80";
+            default:
+                return "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80";
+        }
+    }
+%>
+
 <section class="hero">
     <div class="hero-content">
         <h1>Discover the Best Food in Parbhani</h1>
@@ -32,7 +62,10 @@
                        if (restaurantCount >= 5) break; %>
             <div class="restaurant-card card-stagger" onclick="location.href='<%= request.getContextPath() %>/restaurant?id=<%= restaurant.getRestaurantId() %>'">
                 <div class="restaurant-cover">
-                    <img src="<%= restaurant.getImageUrl() %>" alt="<%= restaurant.getName() %>" onerror="this.src='https://via.placeholder.com/300x200?text=Image+Not+Available'">
+                    <img src="<%= restaurant.getImageUrl() != null && !restaurant.getImageUrl().isEmpty() ? restaurant.getImageUrl() : "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&q=80" %>"
+                         alt="<%= restaurant.getName() %>"
+                         loading="lazy"
+                         onerror="this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&q=80'">
                     <% if (restaurant.isTrending()) { %>
                         <span class="promoted-badge">Trending</span>
                     <% } %>
@@ -97,9 +130,10 @@
                    for (Category category : categories) { %>
             <a href="<%= request.getContextPath() %>/category?id=<%= category.getCategoryId() %>"
                class="category-card card-stagger" style="text-decoration: none;">
-                <img src="https://source.unsplash.com/200x200/?<%= category.getName().toLowerCase().replace(" ", "") %>,food"
+                <img src="<%= getCategoryImage(category.getName()) %>"
                      alt="<%= category.getName() %>"
-                     onerror="this.src='https://via.placeholder.com/100?text=<%= category.getName().charAt(0) %>'">
+                     loading="lazy"
+                     onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80'">
                 <h4><%= category.getName() %></h4>
             </a>
             <% } } else { %>
@@ -220,7 +254,11 @@
                    for (FoodItem food : trendingFoodItems) {
                        if (foodItemCount >= 8) break; %>
             <div class="food-card card-stagger">
-                <img src="<%= food.getImageUrl() %>" alt="<%= food.getName() %>" class="food-image" onerror="this.src='https://via.placeholder.com/300x200?text=Image+Not+Available'">
+                <img src="<%= food.getImageUrl() != null && !food.getImageUrl().isEmpty() ? food.getImageUrl() : "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80" %>"
+                     alt="<%= food.getName() %>"
+                     class="food-image"
+                     loading="lazy"
+                     onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80'">
                 <div class="food-info">
                     <h4 class="food-name"><%= food.getName() %></h4>
                     <% if (food.getCategory() != null && !food.getCategory().isEmpty()) { %>

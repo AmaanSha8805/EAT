@@ -24,6 +24,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Image</th>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Category</th>
@@ -38,6 +39,13 @@
                     <% if (foodItems != null && !foodItems.isEmpty()) {
                            for (FoodItem food : foodItems) { %>
                     <tr>
+                        <td>
+                            <img src="<%= food.getImageUrl() != null && !food.getImageUrl().isEmpty() ? food.getImageUrl() : "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80" %>"
+                                 alt="<%= food.getName() %>"
+                                 style="width: 60px; height: 60px; object-fit: cover; border-radius: var(--radius-sm);"
+                                 loading="lazy"
+                                 onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80'">
+                        </td>
                         <td><%= food.getFoodId() %></td>
                         <td><%= food.getName() %></td>
                         <td><%= food.getCategory() %></td>
@@ -70,7 +78,7 @@
                     </tr>
                     <% } } else { %>
                     <tr>
-                        <td colspan="8" class="text-center">No food items found</td>
+                        <td colspan="9" class="text-center">No food items found</td>
                     </tr>
                     <% } %>
                 </tbody>

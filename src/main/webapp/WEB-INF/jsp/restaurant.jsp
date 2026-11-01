@@ -11,9 +11,11 @@
         <!-- Restaurant Header -->
         <div class="card mb-4" style="border: none; box-shadow: var(--shadow-md);">
             <div style="position: relative; height: 300px; overflow: hidden;">
-                <img src="<%= restaurant.getImageUrl() %>" alt="<%= restaurant.getName() %>"
+                <img src="<%= restaurant.getImageUrl() != null && !restaurant.getImageUrl().isEmpty() ? restaurant.getImageUrl() : "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&q=80" %>"
+                     alt="<%= restaurant.getName() %>"
                      style="width: 100%; height: 100%; object-fit: cover;"
-                     onerror="this.src='https://via.placeholder.com/1200x400?text=Restaurant+Image'">
+                     loading="lazy"
+                     onerror="this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&q=80'">
                 <div style="position: absolute; bottom: 0; left: 0; right: 0;
                             background: linear-gradient(transparent, rgba(0,0,0,0.7));
                             padding: var(--spacing-2xl) var(--spacing-lg);">
@@ -81,8 +83,11 @@
             <% if (foodItems != null && !foodItems.isEmpty()) {
                    for (FoodItem food : foodItems) { %>
             <div class="food-card">
-                <img src="<%= food.getImageUrl() %>" alt="<%= food.getName() %>" class="food-image"
-                     onerror="this.src='https://via.placeholder.com/300x200?text=Food+Item'">
+                <img src="<%= food.getImageUrl() != null && !food.getImageUrl().isEmpty() ? food.getImageUrl() : "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80" %>"
+                     alt="<%= food.getName() %>"
+                     class="food-image"
+                     loading="lazy"
+                     onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80'">
                 <div class="food-info">
                     <h4 class="food-name">
                         <%= food.getName() %>
