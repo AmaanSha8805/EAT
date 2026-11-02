@@ -1,29 +1,15 @@
-const { Pool } = require('pg');
-require('dotenv').config();
-
-const isProduction = process.env.NODE_ENV === 'production';
+﻿const { Pool } = require('pg');
 
 const pool = new Pool({
-  host: process.env.DB_HOST || 'localhost',
-  port: process.env.DB_PORT || 5432,
-  database: process.env.DB_NAME || 'eat_db',
-  user: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD,
-
-  // SSL for hosted PostgreSQL (Neon)
-  ssl: isProduction ? { rejectUnauthorized: false } : false,
-
-  max: 20,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 10000,
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.NODE_ENV === 'production'
+    ? { rejectUnauthorized: false }
+    : false,
+  options: '-c search_path=public'
 });
 
-pool.on('connect', () => {
-  console.log('Connected to PostgreSQL database');
-});
-
-pool.on('error', (err) => {
-  console.error('Unexpected error on idle client', err);
+pool.on('connect', (client) => {
+  console.log('PostgreSQL connected with public schema');
 });
 
 module.exports = pool;
